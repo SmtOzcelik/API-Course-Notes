@@ -35,7 +35,7 @@ public class Get04 extends JsonplaceholderBaseUrl {
                 contentType(ContentType.JSON).
                 body("id",hasSize(200)).
                 body("title",hasItem("quis eius est sint explicabo")).
-                body("userId",hasItems(2,7,9))
+                body("userId",hasItems(2,7,9));
 
     }
 }
