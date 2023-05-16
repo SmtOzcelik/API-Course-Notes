@@ -33,7 +33,7 @@ public class Get03 extends JsonplaceholderBaseUrl {
         response.prettyPrint();
 
         // Do Assertion
-        // 1. yol  uzun
+        // 1. yol  uzun (hard assert)
         response.then().assertThat().
                 statusCode(200).
                 contentType("application/json").
@@ -41,6 +41,12 @@ public class Get03 extends JsonplaceholderBaseUrl {
                 body("completed",equalTo(false)).
                 body("userId",equalTo(2));
 
+        // 2. yol
+        response.then().assertThat().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velit"),"completed",equalTo(false),
+                        "userId",equalTo(2));
 
 
     }
