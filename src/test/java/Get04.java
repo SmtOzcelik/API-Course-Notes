@@ -23,7 +23,7 @@ public class Get04 extends JsonplaceholderBaseUrl{
     public void get04(){
         // 1-Set the Url
         spec.pathParam("first","todos");
-        // 2-Set the expected Data
+        // 2-Set the expected Data (put,patch,post)
 
         // 3-Send The request And get The Response
         Response response=given().spec(spec).when().accept(ContentType.JSON).get("/{first}");
