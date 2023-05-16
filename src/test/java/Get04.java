@@ -27,7 +27,7 @@ public class Get04 extends JsonplaceholderBaseUrl{
 
         // 3-Send The request And get The Response
         Response response=given().spec(spec).when().accept(ContentType.JSON).get("/{first}");
-        response.prettyPrint();
+        //response.prettyPrint();
 
         // 4-Do Assertion
         response.then().assertThat().statusCode(200).
