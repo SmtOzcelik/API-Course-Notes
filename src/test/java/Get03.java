@@ -32,6 +32,15 @@ public class Get03 extends JsonplaceholderBaseUrl {
         Response response = given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
+        // Do Assertion
+        // 1. yol  uzun
+        response.then().assertThat().
+                statusCode(200).
+                contentType("application/json").
+                body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velit")).
+                body("completed",equalTo(false)).
+                body("userId",equalTo(2));
+
 
 
     }
