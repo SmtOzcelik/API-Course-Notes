@@ -41,7 +41,7 @@ public class Get03 extends JsonplaceholderBaseUrl {
                 body("completed",equalTo(false)).
                 body("userId",equalTo(2));
 
-        // 2. yol
+        // 2. yol (soft assert)
         response.then().assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
