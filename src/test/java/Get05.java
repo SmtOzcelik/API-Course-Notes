@@ -11,7 +11,7 @@ public class Get05 extends RestfulBaseUrl {
         Given https://restful-booker.herokuapp.com/booking
         When User sends get request to the URL
         Then Status code is 200
-        And Among the data there should be someone whose firstname is "Eric" and lastname is "Ericsson"
+        And Among the data there should be someone whose firstname is "Sally" and lastname is "Ericsson"
      */
     @Test
     public void get05(){
