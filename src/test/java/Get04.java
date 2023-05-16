@@ -1,3 +1,4 @@
+import base_url.JsonplaceholderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -7,7 +8,7 @@ import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
 
-public class Get04 extends JsonplaceholderBaseUrl{
+public class Get04 extends JsonplaceholderBaseUrl {
     /*
         Given https://jsonplaceholder.typicode.com/todos
         When I send a GET request to the Url
