@@ -17,13 +17,12 @@ public class Get08 {
     public void get08(){
     // 1-Set the url
         String url="https://reqres.in/api/users/3";
+    //2-Set the expected data
 
+    //3-Send the Request and get the Response
         Response response=given().when().get(url);
         response.prettyPrint();
-
-    //Then HTTP Status Code should be 200
-    //And  Content Type should be JSON
-    //And Status Line should be HTTP/1.1 200 OK
+    //4-Do Assertion
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON).statusLine("HTTP/1.1 200 OK");
     }
 }
