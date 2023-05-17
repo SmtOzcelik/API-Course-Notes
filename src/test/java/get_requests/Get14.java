@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 
 public class Get14 extends JsonplaceholderBaseUrl {
