@@ -29,7 +29,7 @@ public class Get07 extends JsonplaceholderBaseUrl {
         //2-Set the expected data
         //3-Send the Request and get the Response
         Response response=given().spec(spec).when().get("/{first}");
-        //response.prettyPrint();
+         response.prettyPrint();
         //4-Do assertions
         // 1)Status code is 200 == > Status kodu 200 olmali
         response.then().assertThat().statusCode(200);//buda olur
