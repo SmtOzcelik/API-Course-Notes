@@ -3,6 +3,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Get08 {
      /*
@@ -24,5 +25,7 @@ public class Get08 {
         response.prettyPrint();
     //4-Do Assertion
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON).statusLine("HTTP/1.1 200 OK");
+
+
     }
 }
