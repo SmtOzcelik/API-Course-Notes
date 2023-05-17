@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.assertEquals;
 
-public class Get_12 extends ReqresBaseUrl {
+public class Get12 extends ReqresBaseUrl {
     /*
         Given
           https://reqres.in/api/unknown/3
