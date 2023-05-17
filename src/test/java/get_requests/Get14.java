@@ -3,6 +3,7 @@ package get_requests;
 import base_url.JsonplaceholderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,7 @@ public class Get14 extends JsonplaceholderBaseUrl {
             }
      */
     @Test
-    public void get(){
+    public void get14(){
         //1-Set the url
         spec.pathParams("first","todos","second",2);
         //2-Set the expected data
@@ -43,6 +44,44 @@ public class Get14 extends JsonplaceholderBaseUrl {
         expectedData.put("title","quis ut nam facilis et officia qui");
         expectedData.put("completed",false);
         System.out.println("expectedData : "+expectedData);
+
+        //3-Send the Request and get the Response
+        Response response=given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
+
+        //4-Do Assertion
+        // Status code is 200
+        assertEquals(200,response.statusCode());
+        // And header "Via" is "1.1 vegur"
+        assertEquals("1.1 vegur",response.getHeader("Via"));
+        // And header "Server" is "cloudflare"
+        assertEquals("cloudflare",response.getHeader("Server"));
+
+
+        Map<String,Object>actualData=response.as(HashMap.class);//De-Serialization yani json u java ya cevirdik
+        System.out.println("actualData : "+actualData);
+
+        assertEquals(expectedData.get("userId"),actualData.get("userId"));
+        assertEquals(expectedData.get("id"),actualData.get("id"));
+        assertEquals(expectedData.get("title"),actualData.get("title"));
+        assertEquals(expectedData.get("completed"),actualData.get("completed"));
+
+        // Bu asagidaki ise önceki ögrendigimiz manuel karşılaştirdik
+        response.then().assertThat().body("userId",equalTo(1));
+        response.then().assertThat().body("id",equalTo(2));
+        response.then().assertThat().body("title",equalTo("quis ut nam facilis et officia qui"));
+        response.then().assertThat().body("completed",equalTo(false));
+
+    }
+
+    @Test
+    public void get14a(){
+        //1-Set the url
+        spec.pathParams("first","todos","second",2);
+        //2-Set the expected data
+        JsonPlaceHolderTestData objJsonPlcHldr=new JsonPlaceHolderTestData();
+        Map<String,Object>expectedData=objJsonPlcHldr.expectedDataMetodu(1,"quis ut nam facilis et officia qui",false);
+
 
         //3-Send the Request and get the Response
         Response response=given().spec(spec).when().get("/{first}/{second}");
