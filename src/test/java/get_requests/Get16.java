@@ -1,6 +1,9 @@
 package get_requests;
 
-public class Get16 {
+import base_url.GorestBaseUrl;
+import org.junit.Test;
+
+public class Get16 extends GorestBaseUrl {
     /*
         Given
             https://gorest.co.in/public/v1/users/29
@@ -19,4 +22,11 @@ public class Get16 {
 }
      */
 
+    @Test
+    public void get16(){
+        //1-Set the url
+        spec.pathParams("first","users","second",29);
+        //2-Set the expectedData
+
+    }
 }
