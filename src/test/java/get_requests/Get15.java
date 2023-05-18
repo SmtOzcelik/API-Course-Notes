@@ -41,8 +41,8 @@ public class Get15 extends RestfulBaseUrl {
         bookindatesMap.put("checkout","2019-01-01");
 
         Map<String, Object>expectedDataMap=new HashMap<>(); // dis Map expectedMap
-        expectedDataMap.put("firstname","Jane");
-        expectedDataMap.put("lastname","Doe");
+        expectedDataMap.put("firstname","Josh");
+        expectedDataMap.put("lastname","Allen");
         expectedDataMap.put("totalprice",111);
         expectedDataMap.put("depositpaid",true);
         expectedDataMap.put("bookingdates",bookindatesMap);
