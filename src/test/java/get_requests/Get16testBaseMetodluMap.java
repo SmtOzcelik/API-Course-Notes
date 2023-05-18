@@ -3,6 +3,7 @@ package get_requests;
 import base_url.GorestBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.GorestTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Get16b extends GorestBaseUrl {
+public class Get16testBaseMetodluMap extends GorestBaseUrl {
     /*
         Given
             https://gorest.co.in/public/v1/users/29
@@ -28,26 +29,25 @@ public class Get16b extends GorestBaseUrl {
     }
 }
      */
+
     @Test
-    public void get16b(){
+    public void get16(){
         //1-Set the url
         spec.pathParams("first","users","second",29);
-        //2-Set the expected data
-        Map<String,String>dataKeyMap=new HashMap<>();// ic map
-        dataKeyMap.put("message","Resource not found");
-
-        Map<String,Object>expectedMap=new HashMap<>();
-        expectedMap.put("meta",null);
-        expectedMap.put("data",dataKeyMap);
-        System.out.println(expectedMap);
-        //3-Send the Request and get the Response
+        //2-Set the expectedData
+        GorestTestData obj =new GorestTestData();
+        Map<String,String> dataKeyMap=obj.dataKeyMapMetod("Resource not found");
+        Map<String,Object>expectedData=obj.expectedDataMetodu(null,dataKeyMap);
+        System.out.println(expectedData);
+        //3-----
         Response response=given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
+        //4----
+        Map<String,Object>actualDataMap=response.as(HashMap.class);
+        System.out.println(actualDataMap);
+        assertEquals(expectedData.get("meta"),actualDataMap.get("meta"));
+        assertEquals(dataKeyMap.get("message"),((Map)(actualDataMap.get("data"))).get("message"));
 
-        //4-Do Assertion
-        Map<String,Object>actualMap=response.as(HashMap.class);
-        //assertEquals(200,response.statusCode());
-        assertEquals(expectedMap.get("meta"),actualMap.get("meta"));
-        assertEquals(dataKeyMap.get("message"),((Map)(actualMap.get("data"))).get("message"));
+
     }
 }
