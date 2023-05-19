@@ -65,7 +65,9 @@ public class Get18_Body_And_JSonPath extends GorestBaseUrl {
         }
         assertTrue(kadinSayisi<=genders.size()-kadinSayisi);
         //2.yol kadin ve erkek sayilarini Groovy ile bulalim
-
+       List<String>femaleList=jsonPath.getList("data.findAll{it.gender=='female'}");
+        List<String>maleList=jsonPath.getList("data.findAll{it.gender=='male'}");
+       assertTrue(femaleList.size()<=maleList.size());
 
 
     }
