@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -38,14 +39,18 @@ public class Post05ObjectMapper_Map extends JsonplaceholderBaseUrl {
         //Set the url
         spec.pathParam("1","todos");
         //Set the expected data
-
+/*
+    bunun yerine bu görüntüyü gizlemek icin test_data da JsonPlaceHolderTestData icine method oluşturduk
+    obje ile ordan cekecegiz
         String jsonInString="{\n" +
                 "                                    \"userId\": 55,\n" +
                 "                                    \"title\": \"Tidy your room\",\n" +
                 "                                    \"completed\": false,\n" +
                 "                                    \"id\": 201\n" +
                 "                                    }";
-
+*/
+        JsonPlaceHolderTestData obj=new JsonPlaceHolderTestData();
+        String jsonInString=obj.expectedDataInString(55,"Tidy your room",false);
         Map<String,Object>expectedData=new ObjectMapper().readValue(jsonInString, HashMap.class);
         System.out.println("expectedData = " + expectedData);
         //Send the request and get the response
