@@ -3,7 +3,7 @@ package pojos;
 public class BookingPojo {
     private String firstname;
     private String lastname;
-    private String totalprice;
+    private Integer totalprice;
     private Boolean depositpaid;
     private BookingDatesPojo bookingdates;
     private String additionalneeds;
@@ -11,7 +11,7 @@ public class BookingPojo {
     public BookingPojo() {
     }
 
-    public BookingPojo(String firstname, String lastname, String totalprice, Boolean depositpaid, BookingDatesPojo bookingdates, String additionalneeds) {
+    public BookingPojo(String firstname, String lastname, Integer totalprice, Boolean depositpaid, BookingDatesPojo bookingdates, String additionalneeds) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.totalprice = totalprice;
@@ -36,11 +36,11 @@ public class BookingPojo {
         this.lastname = lastname;
     }
 
-    public String getTotalprice() {
+    public Integer getTotalprice() {
         return totalprice;
     }
 
-    public void setTotalprice(String totalprice) {
+    public void setTotalprice(Integer totalprice) {
         this.totalprice = totalprice;
     }
 
