@@ -1,5 +1,8 @@
 package pojos;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GorestPojo {
     private String meta;
     private GorestDataPojo data;
