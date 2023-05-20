@@ -12,7 +12,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Post02 extends RestfulBaseUrl {
+public class Post02_Onemli extends RestfulBaseUrl {
     /*
    Given
        1) https://restful-booker.herokuapp.com/booking
