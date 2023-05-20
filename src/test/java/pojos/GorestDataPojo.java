@@ -1,12 +1,12 @@
 package pojos;
 
-public class DataPojo {
+public class GorestDataPojo {
     private String message;
 
-    public DataPojo() {
+    public GorestDataPojo() {
     }
 
-    public DataPojo(String message) {
+    public GorestDataPojo(String message) {
         this.message = message;
     }
 

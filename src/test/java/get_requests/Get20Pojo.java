@@ -1,7 +1,13 @@
 package get_requests;
 
 import base_url.GorestBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
+import pojos.GorestDataPojo;
+import pojos.GorestPojo;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class Get20Pojo extends GorestBaseUrl {
     /*
@@ -25,7 +31,16 @@ public class Get20Pojo extends GorestBaseUrl {
         //Set the Url
         spec.pathParams("1","users","2",2508);
         //Set the expected data
-
+        GorestDataPojo gorestDataPojo=new GorestDataPojo("Resource not found");
+        System.out.println(gorestDataPojo);
+        GorestPojo expectedDate=new GorestPojo(null,gorestDataPojo);
+        System.out.println(expectedDate);
+        //Send the Request and get the Response
+        Response response=given().spec(spec).when().get("/{1}/{2}");
+        GorestPojo actualData=response.as(GorestPojo.class);
+        // Do assertions
+        assertEquals(expectedDate.getMeta(),actualData.getMeta());
+        assertEquals(gorestDataPojo.getMessage(),actualData.getData().getMessage());
 
     }
 }
