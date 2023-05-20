@@ -51,6 +51,7 @@ public class Post05ObjectMapper_Map extends JsonplaceholderBaseUrl {
 */
         JsonPlaceHolderTestData obj=new JsonPlaceHolderTestData();
         String jsonInString=obj.expectedDataInString(55,"Tidy your room",false);
+
         Map<String,Object>expectedData=new ObjectMapper().readValue(jsonInString, HashMap.class);
         System.out.println("expectedData = " + expectedData);
         //Send the request and get the response
