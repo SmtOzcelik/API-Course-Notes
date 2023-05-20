@@ -16,7 +16,7 @@ public class ObjectMapperUtils {
 
         T javeResult=null;
         try {
-            mapper.readValue(json,cls);
+            javeResult=mapper.readValue(json,cls);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
