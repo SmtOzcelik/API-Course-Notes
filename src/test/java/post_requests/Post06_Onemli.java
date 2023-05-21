@@ -11,7 +11,7 @@ import utils.ObjectMapperUtils;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Post06 extends DummyRestApiBaseUrl {
+public class Post06_Onemli extends DummyRestApiBaseUrl {
     //Pojo - ObjectMapper ile çozum
     /*
        URL: https://dummy.restapiexample.com/api/v1/create
