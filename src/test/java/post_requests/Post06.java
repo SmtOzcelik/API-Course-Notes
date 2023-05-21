@@ -1,6 +1,10 @@
 package post_requests;
 
-public class Post06 {
+import base_url.DummyRestApiBaseUrl;
+import org.junit.Test;
+
+public class Post06 extends DummyRestApiBaseUrl {
+    //Pojo - ObjectMapper ile çozum
     /*
        URL: https://dummy.restapiexample.com/api/v1/create
        HTTP Request Method: POST Request
@@ -58,5 +62,12 @@ public class Post06 {
             "message": "Successfully! Record has been added."
         }
      */
+    @Test
+    public void post06(){
+        //Set the url
+        spec.pathParam("1","create");
+        //Set the expected data
+
+    }
 
 }
